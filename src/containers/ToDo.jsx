@@ -1,24 +1,22 @@
-import React from 'react';
-import { useState } from 'react';
+import React, { useState } from 'react';
 
 import ToDoForm from '../components/ToDoForm';
 import ToDoList from '../components/ToDoList';
 
 const ToDo = () => {
+  const [todos, setTodos] = useState([]);
 
-  const [todos, setTodos] = useState(["Menyapu", "Mengepel"]);
-
-  const handleSubmit = (todo) => {
+  const handleClick = (todo) => {
+    // NEVER mutate state directly, like using push() or =
+    // Treat state as if it were immutable, so you replace the whole array
+    // ...todos is the spread operator, it spreads the array
     setTodos([...todos, todo]);
-    console.log(todos);
-    // alert("New Todo:" + todos);
-  }
-  
+  };
 
   return (
-    <div className='todo'>
-      <h2 className='title'>To-Do List</h2>
-      <ToDoForm handleSubmit={handleSubmit}/>
+    <div className="todo">
+      <h2 className="title">To-Do List</h2>
+      <ToDoForm handleClick={handleClick} />
       <ToDoList todos={todos} />
     </div>
   );

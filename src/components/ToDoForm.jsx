@@ -1,29 +1,31 @@
-import React from 'react';
-import { useState } from 'react';
+import { Button, TextField } from '@mui/material';
+import React, { useState } from 'react';
 
-const ToDoForm = ({ handleSubmit }) => {
-  const [todo, setTodo] = useState(" ");
-
-  const submitHandler = (todo) => {
-    handleSubmit(todo);
-    setTodo(" ");
-  }
+const ToDoForm = ({ handleClick }) => {
+  const [todo, setTodo] = useState("");
 
   return (
-    <div className='todo-form'>
+    <div className="todo-form">
       <p>~ Today I need to ~</p>
       <span>
-        <input 
-        value={todo} 
-        onChange={(event) => setTodo(event.target.value)}/>
-        <input 
-        value={todo} 
-        onChange={(event) => setTodo(event.target.value)}/>
-        <button 
-        onClick={() => submitHandler(todo)}>
-          Submit</button>
+        <TextField
+          label="Task"
+          variant="filled"
+          value={todo}
+          onChange={(e) => {
+            setTodo(e.target.value);
+          }}
+        />
+        <Button
+          variant="contained"
+          onClick={() => {
+            handleClick(todo);
+            setTodo("");
+          }}
+        >
+          Submit
+        </Button>
       </span>
-      <p> {todo} </p>
     </div>
   );
 };
