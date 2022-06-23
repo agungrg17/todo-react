@@ -18,7 +18,7 @@ const ToDoList = ({ todos, handleCheckbox }) => {
                 </ListItemIcon>
                 <ListItemText 
                   primary={todo.task}
-                  className={todo.complete ? "complete" : ""}
+                  className={todo.complete ? "completed" : ""}
                   // className={todo.complete && "complete"}
                 />
               </ListItemButton>
