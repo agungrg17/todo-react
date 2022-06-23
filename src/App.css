@@ -3,6 +3,7 @@
   flex-direction: column;
   background-color:lightskyblue;
   min-height: 100vh;
+  font-family: 'Roboto', sans-serif;
 }
 
 .title {
@@ -25,6 +26,7 @@
 
 .todo-list {
   width: fit-content;
+  text-align: left;
 }
 
 .todo-form span {
@@ -35,7 +37,14 @@
 .todo-form p {
   text-align: center;
 }
+.todo-form span > *:first-child {
+  width: 80%;
+}
 
 .todo-form input {
   width: 80%;
+}
+.complete {
+  text-decoration-line: line-through;
+  -moz-text-decoration-line: line-through;
 }
